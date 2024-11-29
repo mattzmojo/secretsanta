@@ -9,6 +9,11 @@ document.getElementById("generate-btn").addEventListener("click", function() {
         return;
     }
 
+    if (participants.length % 2 !== 0) {
+        alert("The number of participants must be even! Please add or remove a name.");
+        return;
+    }
+
     pairings = generateSecretSanta(participants);
 
     // Show Step 2 for participants to check their pairing
