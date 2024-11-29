@@ -9,10 +9,22 @@
 <body>
     <div class="container">
         <h1>🎅 Secret Santa Gift Exchange 🎄</h1>
-        <p>Enter the names of participants (one per line) and click "Generate Pairings".</p>
-        <textarea id="participants" placeholder="Enter names here..."></textarea>
-        <button id="generate-btn">Generate Pairings</button>
-        <div id="result"></div>
+        
+        <!-- Step 1: Organizer enters participants -->
+        <div id="step-1">
+            <h2>Step 1: Enter Participants</h2>
+            <textarea id="participants" placeholder="Enter participant names, one per line..."></textarea>
+            <button id="generate-btn">Generate Pairings</button>
+        </div>
+
+        <!-- Step 2: Participants privately check their pairing -->
+        <div id="step-2" style="display: none;">
+            <h2>Step 2: Check Your Pairing</h2>
+            <p>Enter your name to see who you're gifting to:</p>
+            <input type="text" id="participant-name" placeholder="Enter your name...">
+            <button id="check-btn">Check Pairing</button>
+            <div id="result"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
