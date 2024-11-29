@@ -3,20 +3,21 @@ let pairings = {}; // Global variable to store pairings
 document.getElementById("generate-btn").addEventListener("click", function() {
     const input = document.getElementById("participants").value.trim();
     const participants = input.split("\n").map(name => name.trim()).filter(name => name);
+    const errorMessage = document.getElementById("error-message");
 
     if (participants.length < 2) {
-        alert("Please enter at least two participants!");
+        errorMessage.innerText = "Please enter at least two participants!";
         return;
     }
 
     if (participants.length % 2 !== 0) {
-        alert("The number of participants must be even! Please add or remove a name.");
+        errorMessage.innerText = "The number of participants must be even! Please add or remove a name.";
         return;
     }
 
+    errorMessage.innerText = ""; // Clear any previous error
     pairings = generateSecretSanta(participants);
 
-    // Show Step 2 for participants to check their pairing
     document.getElementById("step-1").style.display = "none";
     document.getElementById("step-2").style.display = "block";
 
